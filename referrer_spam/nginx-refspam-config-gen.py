@@ -72,7 +72,7 @@ with urllib.request.urlopen(args.input_url) as fi:
         fo.write('\thostnames;\n\n')
         fo.write('\tdefault\t0;\n')
         for l in fi:
-            h = l.decode('utf8').strip()
+            h = l.decode('utf8').strip().replace('.', '\.')
             if args.verbose:
                 print('Writing {0}'.format(h))
             fo.write('\t"~{0}"\t1;\n'.format(h))
